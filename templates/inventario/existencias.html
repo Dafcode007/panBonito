@@ -1,0 +1,26 @@
+{% extends 'base_user.html' %}
+
+{% block vista_usuario %}
+<div class="text-center mt-5 mb-4">
+    <h1>Inventario</h1>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre del pan</th>
+            <th>Existencias</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in datos %}
+        <tr>
+            <td>{{ item.1 }}</td>
+            <td>{{ item.2 }}</td>
+            <td>{{ item.3 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

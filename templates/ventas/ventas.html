@@ -1,0 +1,57 @@
+{% extends 'base_user.html' %}
+
+{% block vista_usuario %}
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+        <form action="{{ url_for('action_ventas') }}" method="post">
+            <div class="mt-5 mb-4">
+                <h1>Venta de pan</h1>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label for="" class="form-label">Selecciona un pan de la lista:</label>
+                    <select name="lista_productos" id="" class="form-control">
+                        <option disabled selected>Elige tu pan</option>
+                        {% for pan in productos %}
+                        <option value="{{ pan.0 }}">{{ pan.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label for="" class="form-label">Cantidad:</label>
+                    <input type="number" name="cantidad" class="form-control" min="1" max="100">
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-info form-control mt-3">Enviar venta</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <div class="col-1"></div>
+</div>
+<div class="text-center mt-5 mb-4">
+    <h3>Existencias de productos</h3>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre del pan</th>
+            <th>Existencias</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in productos %}
+        <tr>
+            <td>{{ item.1 }}</td>
+            <td>{{ item.2 }}</td>
+            <td>{{ item.3 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

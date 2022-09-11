@@ -1,0 +1,24 @@
+{% extends 'base_user.html' %}
+
+{% block vista_usuario %}
+<div class="text-center mt-5 mb-4">
+    <h1>Agregar producto</h1>
+</div>
+<form action="{{ url_for('add_bread') }}" method="post">
+    <div class="row mt-5">
+        <div class="col">
+            <label for="" class="form-label">Nombre del Pan</label>
+            <input type="text" name="nombre_pan" id="" class="form-control">
+            <label for="" class="form-label">Existencias</label>
+            <input type="number" name="existencias" id="" class="form-control" min="1">
+        </div>
+        <div class="col">
+            <label for="" class="form-label">Precio</label>
+            <input type="text" name="precio" id="" class="form-control">
+            <button type="submit" class="btn btn-info form-control mt-4 text-white fw-bold">Guardar producto</button>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}
